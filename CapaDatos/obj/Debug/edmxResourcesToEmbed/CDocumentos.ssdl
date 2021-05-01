@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CDocumentosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="DepartamentoId" />
+    </Key>
+    <Property Name="DepartamentoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreDepartamento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sigla" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FechaCreacionDepartamento" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Documento">
+    <Key>
+      <PropertyRef Name="DocumentoId" />
+    </Key>
+    <Property Name="DocumentoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ano" Type="date" Nullable="false" />
+    <Property Name="DepartamentoOrigen" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DepartamentoDestino" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Secuencia" Type="int" Nullable="false" />
+    <Property Name="NombreDocumento" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCreacionDocumento" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="EmpleadoId" />
+    </Key>
+    <Property Name="EmpleadoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreEmpleado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CorreoElectronico" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Departamento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cargo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DocumentoId" Type="int" />
+    <Property Name="DepartamentoId" Type="int" />
+    <Property Name="FechaCreacionEmpleado" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Empleado_Departamento">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="DepartamentoId" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="DepartamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Documento">
+    <End Role="Documento" Type="Self.Documento" Multiplicity="0..1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documento">
+        <PropertyRef Name="DocumentoId" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="DocumentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="BuscaDepartamentos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre_departamento" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="BuscaDocumentos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="departamento_origen" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="BuscaEmpleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="CDocumentosModelStoreContainer">
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Documento" EntityType="Self.Documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Empleado_Departamento" Association="Self.FK_Empleado_Departamento">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Documento" Association="Self.FK_Empleado_Documento">
+      <End Role="Documento" EntitySet="Documento" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

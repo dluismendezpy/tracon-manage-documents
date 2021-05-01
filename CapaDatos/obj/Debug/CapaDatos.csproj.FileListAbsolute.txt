@@ -1,0 +1,15 @@
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\bin\Debug\CapaEntidad.dll
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\bin\Debug\EntityFramework.dll
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\bin\Debug\CapaEntidad.pdb
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\bin\Debug\CapaEntidad.dll.config
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\bin\Debug\EntityFramework.xml
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\luis_\source\repos\ControlDocumentos\CapaDatos\obj\Debug\CapaDatos.pdb

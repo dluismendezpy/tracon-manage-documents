@@ -1,0 +1,66 @@
+﻿@using CapaPresentacion.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesion";
+}
+
+<div class="margen-input">
+    <a class="text-warning" style="font-size: 35px;" title="Regresar" href="@Url.Action("Index", "Home", new {  })"><i class="fas fa-arrow-alt-circle-left"></i></a>
+</div>
+
+<h2 class="">Inicia sesion</h2>
+
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h5>
+                    <strong>
+                        **Si no eres miembro de esta institucion no accedas**
+                    </strong>
+                </h5>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
+                    <label class="col-md-2 control-label">Correo</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @*@Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })*@
+                    <label class="col-md-2 control-label">Contraseña</label>
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Entrar" class="btn btn-primary" />
+                    </div>
+                </div>
+                <p>
+                    No tienes unas Cuenta? @Html.ActionLink("Registrate", "Register")
+                </p>
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
+            }
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

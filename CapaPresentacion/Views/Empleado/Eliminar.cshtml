@@ -1,0 +1,106 @@
+﻿@model CapaEntidad.Empleado
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<div class="margen-input">
+    <a class="text-warning" style="font-size: 35px;" title="Regresar" href="@Url.Action("Index", "Empleado", new {  })"><i class="fas fa-arrow-alt-circle-left"></i></a>
+</div>
+
+<h2 class=" text-danger margen-input">Eliminar</h2>
+
+<h3 class="text-danger">Estas seguro que seseas eliminar a "@Html.DisplayFor(model => model.NombreEmpleado)"?</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NombreEmpleado)*@
+            <label>Nombre</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreEmpleado)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.CorreoElectronico)*@
+            <label>Correo electronico</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoElectronico)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Departamento)*@
+            <label>Departamento</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Cargo)*@
+            <label>Cargo</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cargo)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Telefono)*@
+            <label>Telefono</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Direccion)*@
+            <label>Direccion</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.DocumentoId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentoId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartamentoId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartamentoId)
+        </dd>*@
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.FechaCreacionEmpleado)*@
+            <label>Fecha de creacion</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacionEmpleado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Eliminar", "Empleado", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    }
+</div>

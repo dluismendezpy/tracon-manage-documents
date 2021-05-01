@@ -1,0 +1,78 @@
+﻿@model CapaEntidad.Documento
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="margen-input">
+    <a class="text-warning" style="font-size: 35px;" title="Regresar" href="@Url.Action("Index", "Documento", new {  })"><i class="fas fa-arrow-alt-circle-left"></i></a>
+</div>
+
+<h2 class=" text-success margen-input">Detalles</h2>
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Ano)*@
+            <label>Año</label>
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.Ano)*@
+            @DateTime.Now.ToString("yyy")
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.DepartamentoOrigen)*@
+            <label>Depto. de origen</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartamentoOrigen)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.DepartamentoDestino)*@
+            <label>Depto. de destino</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartamentoDestino)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Secuencia)
+            <label>Secuencia</label>
+        </dt>*@
+
+        @*<dd>
+            @Html.DisplayFor(model => model.Secuencia)
+        </dd>*@
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NombreDocumento)*@
+            <label>Nombre</label>
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.NombreDocumento)*@
+            @DateTime.Now.ToString("yyy") - @Html.DisplayFor(model => model.DepartamentoOrigen) - @Html.DisplayFor(model => model.DepartamentoDestino) - @Html.DisplayFor(model => model.Secuencia)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.FechaCreacionDocumento)*@
+            <label>Fecha de creacion</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacionDocumento)
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.DocumentoId }, new { @class = "btn btn-primary" })
+</p>

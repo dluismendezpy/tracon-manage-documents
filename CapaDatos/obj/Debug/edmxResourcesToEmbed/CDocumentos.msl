@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CDocumentosModelStoreContainer" CdmEntityContainer="CDocumentosEntities">
+    <EntitySetMapping Name="Departamentoes">
+      <EntityTypeMapping TypeName="CDocumentosModel.Departamento">
+        <MappingFragment StoreEntitySet="Departamento">
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+          <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+          <ScalarProperty Name="Sigla" ColumnName="Sigla" />
+          <ScalarProperty Name="FechaCreacionDepartamento" ColumnName="FechaCreacionDepartamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documentoes">
+      <EntityTypeMapping TypeName="CDocumentosModel.Documento">
+        <MappingFragment StoreEntitySet="Documento">
+          <ScalarProperty Name="DocumentoId" ColumnName="DocumentoId" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="DepartamentoOrigen" ColumnName="DepartamentoOrigen" />
+          <ScalarProperty Name="DepartamentoDestino" ColumnName="DepartamentoDestino" />
+          <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+          <ScalarProperty Name="NombreDocumento" ColumnName="NombreDocumento" />
+          <ScalarProperty Name="FechaCreacionDocumento" ColumnName="FechaCreacionDocumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleadoes">
+      <EntityTypeMapping TypeName="CDocumentosModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="EmpleadoId" ColumnName="EmpleadoId" />
+          <ScalarProperty Name="NombreEmpleado" ColumnName="NombreEmpleado" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="DocumentoId" ColumnName="DocumentoId" />
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+          <ScalarProperty Name="FechaCreacionEmpleado" ColumnName="FechaCreacionEmpleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="BuscaDepartamentos" FunctionName="CDocumentosModel.Store.BuscaDepartamentos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CDocumentosModel.BuscaDepartamentos_Result">
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+          <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+          <ScalarProperty Name="Sigla" ColumnName="Sigla" />
+          <ScalarProperty Name="FechaCreacionDepartamento" ColumnName="FechaCreacionDepartamento" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BuscaEmpleados" FunctionName="CDocumentosModel.Store.BuscaEmpleados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CDocumentosModel.BuscaEmpleados_Result">
+          <ScalarProperty Name="EmpleadoId" ColumnName="EmpleadoId" />
+          <ScalarProperty Name="NombreEmpleado" ColumnName="NombreEmpleado" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="DocumentoId" ColumnName="DocumentoId" />
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+          <ScalarProperty Name="FechaCreacionEmpleado" ColumnName="FechaCreacionEmpleado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BuscaDocumentos" FunctionName="CDocumentosModel.Store.BuscaDocumentos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CDocumentosModel.BuscaDocumentos_Result">
+          <ScalarProperty Name="DocumentoId" ColumnName="DocumentoId" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="DepartamentoOrigen" ColumnName="DepartamentoOrigen" />
+          <ScalarProperty Name="DepartamentoDestino" ColumnName="DepartamentoDestino" />
+          <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+          <ScalarProperty Name="NombreDocumento" ColumnName="NombreDocumento" />
+          <ScalarProperty Name="FechaCreacionDocumento" ColumnName="FechaCreacionDocumento" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

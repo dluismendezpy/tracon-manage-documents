@@ -1,0 +1,53 @@
+﻿@model CapaEntidad.Departamento
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="margen-input">
+    <a class="text-warning" style="font-size: 35px;" title="Regresar" href="@Url.Action("Index", "Departamento", new {  })"><i class="fas fa-arrow-alt-circle-left"></i></a>
+</div>
+
+<h2 class=" text-danger margen-input">Eliminar</h2>
+
+<h3 class="text-danger">Estas seguro que seseas eliminar "@Html.DisplayFor(model => model.NombreDepartamento)"?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NombreDepartamento)*@
+            <label>Nombre</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreDepartamento)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Sigla)*@
+            <label>Sigla</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sigla)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.FechaCreacionDepartamento)*@
+            <label>Fecha de creacion</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacionDepartamento)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Eliminar", "Departamento", FormMethod.Post)) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+        </div>
+     }
+</div>

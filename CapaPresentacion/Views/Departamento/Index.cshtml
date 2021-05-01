@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CapaEntidad.Departamento>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form-inline text-right margen-forms" action="~/Departamento/ResultadoBusqueda" method="post">
+
+    <input type="text" name="departamento" class="form-control" placeholder="Busca un departamento..." style="width: 700px;" />
+    <input type="submit" value="Buscar" class="btn btn-primary" />
+
+</form>
+
+<h2 class="text-center margen-input">Lista de departamentos</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.NombreDepartamento)*@
+            <label>Nombre</label>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Sigla)*@
+            <label>Sigla</label>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.FechaCreacionDepartamento)*@
+            <label>Fecha de Creacion</label>
+        </th>
+        <th>
+            <label>Utilidades</label>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreDepartamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sigla)
+        </td>
+        <td>
+            @item.FechaCreacionDepartamento.ToShortDateString()
+            @*@Html.DisplayFor(modelItem => item.FechaCreacionDepartamento)*@
+        </td>
+        <td>
+            <a class="btn btn-primary btn-xs" title="Editar" href="@Url.Action("Editar", "Departamento", new { id = item.DepartamentoId })"><i class="fas fa-edit"></i></a>
+            <a class="btn btn-success btn-xs" title="Detalles" href="@Url.Action("GetDepartamento", "Departamento", new { id = item.DepartamentoId })"><i class="fas fa-list-ul"></i></a>
+            <a class="btn btn-danger btn-xs" title="Eliminar" href="@Url.Action("Eliminar", "Departamento", new { id = item.DepartamentoId })"><i class="fas fa-trash-alt"></i></a>
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Crea un departamento", "Crear", new { }, new { @class = "btn btn-primary" })
+</p>

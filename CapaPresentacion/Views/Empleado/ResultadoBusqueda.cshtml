@@ -1,0 +1,99 @@
+﻿@model IEnumerable<CapaEntidad.BuscaEmpleado_Result>
+
+@{
+    ViewBag.Title = "Busqueda";
+}
+
+<h2 class="text-center margen-input">Resultado de tu Busqueda</h2>
+
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.EmpleadoId)
+        </th>*@
+        <th>
+            @*@Html.DisplayNameFor(model => model.NombreEmpleado)*@
+            <label>Nombre</label>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.CorreoElectronico)*@
+            <label>Correo electronico</label>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Departamento)*@
+            <label>Departamento</label>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Cargo)*@
+            <label>Cargo</label>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Telefono)*@
+            <label>Telefono</label>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Direccion)*@
+            <label>Direccion</label>
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.DocumentoId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartamentoId)
+        </th>*@
+        <th>
+            <label>Fecha de creacion</label>
+            @*@Html.DisplayNameFor(model => model.FechaCreacionEmpleado)*@
+            
+        </th>
+        <th>
+            <label>Utilidades</label>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.EmpleadoId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreEmpleado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorreoElectronico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cargo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.DocumentoId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartamentoId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaCreacionEmpleado)
+        </td>
+        <td>
+            <a class="btn btn-primary btn-xs" title="Editar" href="@Url.Action("Editar", "Departamento", new { id = item.EmpleadoId })"><i class="fas fa-edit"></i></a>
+            <a class="btn btn-success btn-xs" title="Detalles" href="@Url.Action("GetDepartamento", "Departamento", new { id = item.EmpleadoId })"><i class="fas fa-list-ul"></i></a>
+            <a class="btn btn-danger btn-xs" title="Eliminar" href="@Url.Action("Eliminar", "Departamento", new { id = item.EmpleadoId })"><i class="fas fa-trash-alt"></i></a>
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Regresar", "Index", new { }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Crear un empleado", "Crear", new { }, new { @class = "btn btn-primary" })
+</p>

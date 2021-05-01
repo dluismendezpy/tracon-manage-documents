@@ -1,0 +1,88 @@
+﻿@model CapaEntidad.Documento
+
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="margen-input">
+    <a class="text-warning" style="font-size: 35px;" title="Regresar" href="@Url.Action("Index", "Documento", new {  })"><i class="fas fa-arrow-alt-circle-left"></i></a>
+</div>
+
+<h2 class=" text-primary margen-input">Crear</h2>
+
+
+@using (Html.BeginForm("Crear", "Documento", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Ano, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">Año</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ano, new { htmlAttributes = new { id = "ano", @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Ano, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('ano').value = @DateTime.Now.Year;
+        </script>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.DepartamentoOrigen, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">Depto. de origen</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DepartamentoOrigen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DepartamentoOrigen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.DepartamentoDestino, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">Depto. de destino</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DepartamentoDestino, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DepartamentoDestino, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Secuencia, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Secuencia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Secuencia, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.NombreDocumento, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreDocumento, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreDocumento, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.FechaCreacionDocumento, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">Fecha de creacion</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FechaCreacionDocumento, new { htmlAttributes = new { id = "date", @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.FechaCreacionDocumento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

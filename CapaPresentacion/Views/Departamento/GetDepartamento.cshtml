@@ -1,0 +1,47 @@
+﻿@model CapaEntidad.Departamento
+
+@{
+    ViewBag.Title = "GetDepartamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="margen-input">
+    <a class="text-warning" style="font-size: 35px;" title="Regresar" href="@Url.Action("Index", "Departamento", new {  })"><i class="fas fa-arrow-alt-circle-left"></i></a>
+</div>
+
+<h2 class=" text-success margen-input">Detalles</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NombreDepartamento)*@
+            <label>Nombre</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreDepartamento)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Sigla)*@
+            <label>Sigla</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sigla)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.FechaCreacionDepartamento)*@
+            <label>Fecha de Creacion</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacionDepartamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.DepartamentoId }, new { @class = "btn btn-primary" })
+</p>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<CapaEntidad.Documento>
+
+@{
+    ViewBag.Title = "Documentos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form-inline text-right margen-forms" action="~/Documento/ResultadoBusqueda" method="post">
+
+    <input type="text" name="documento" class="form-control" placeholder="Busca un documento..." style="width: 700px;" />
+    <input type="submit" value="Buscar" class="btn btn-primary" />
+
+</form>
+
+<h2 class="text-center margen-input">Lista de Documentos</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Ano)*@
+            <label>Año</label>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.DepartamentoOrigen)*@
+            <label>Departamento de origen</label>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.DepartamentoDestino)*@
+            <label>Departamento de destino</label>
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Secuencia)
+            <label>Secuencia</label>
+        </th>*@
+        <th>
+            @*@Html.DisplayNameFor(model => model.NombreDocumento)*@
+            <label>Nombre del documento</label>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.FechaCreacionDocumento)*@
+            <label>Fecha de creacion</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @*@Html.DisplayFor(modelItem => item.Ano)*@
+        @DateTime.Now.ToString("yyy")
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DepartamentoOrigen)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DepartamentoDestino)
+    </td>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.Secuencia)
+        </td>*@
+    @{ 
+        Random random = new Random();
+        int numero = random.Next(1, 11);
+    }
+    <td>
+        @Html.DisplayFor(modelItem => item.NombreDocumento)
+        <strong class="text-success">@DateTime.Now.ToString("yyy") - @Html.DisplayFor(modelItem => item.DepartamentoOrigen) - @Html.DisplayFor(modelItem => item.DepartamentoDestino) - @numero</strong>
+    </td>
+    <td>
+        @*@Html.DisplayFor(modelItem => item.FechaCreacionDocumento)*@
+        @item.FechaCreacionDocumento.ToShortDateString()
+    </td>
+    <td>
+        <a class="btn btn-primary btn-xs" title="Editar" href="@Url.Action("Editar", "Documento", new { id = item.DocumentoId })"><i class="fas fa-edit"></i></a>
+        <a class="btn btn-success btn-xs" title="Detalles" href="@Url.Action("Detalles", "Documento", new { id = item.DocumentoId })"><i class="fas fa-list-ul"></i></a>
+        <a class="btn btn-danger btn-xs" title="Eliminar" href="@Url.Action("Eliminar", "Documento", new { id = item.DocumentoId })"><i class="fas fa-trash-alt"></i></a>
+    </td>
+</tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Crea un documento", "Crear", new { }, new { @class = "btn btn-primary" })
+</p>

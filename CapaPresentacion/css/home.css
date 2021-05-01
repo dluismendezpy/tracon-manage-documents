@@ -1,0 +1,25 @@
+﻿body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('../../Images/p.jpg');
+}
+
+.content-area {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 135px;
+}
+
+.content {
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 80px;
+    color: #fff;
+}
+
+.content p {
+    font-size: 30px;
+    color: #ddd;
+}
